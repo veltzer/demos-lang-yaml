@@ -4,7 +4,7 @@
 # do you want to show the commands executed ?
 DO_MKDBG:=0
 # do you want dependency on the makefile itself ?!?
-DO_ALL_DEP:=1
+DO_ALLDEP:=1
 # do you want to do 'ppt' from 'odp'?
 DO_FMT_YAML_JSON:=1
 
@@ -23,11 +23,9 @@ Q:=@
 endif # DO_MKDBG
 
 # dependency on the makefile itself
-ifeq ($(DO_ALL_DEP),1)
-ALL_DEP:=Makefile
-else
-ALL_DEP:=
-endif # DO_ALL_DEP
+ifeq ($(DO_ALLDEP),1)
+.EXTRA_PREREQS+=$(foreach mk, ${MAKEFILE_LIST},$(abspath ${mk}))
+endif
 
 # markdown
 YAML_SRC:=$(shell find yaml -name "*.yaml")
@@ -45,7 +43,7 @@ all: $(ALL)
 	@true
 
 # json
-$(YAML_JSON): out/%.json: %.yaml $(ALL_DEP)
+$(YAML_JSON): out/%.json: %.yaml
 	$(info doing [$@])
 	$(Q)mkdir -p $(dir $@)
 	$(Q)yq < $< > $@
