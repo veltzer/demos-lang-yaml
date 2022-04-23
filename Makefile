@@ -47,7 +47,6 @@ $(YAML_JSON): out/%.json: %.yaml
 	$(info doing [$@])
 	$(Q)mkdir -p $(dir $@)
 	$(Q)yq < $< > $@
-	$(Q)chmod 444 $@
 
 .PHONY: debug
 debug:
