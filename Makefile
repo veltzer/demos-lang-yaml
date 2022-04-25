@@ -25,7 +25,7 @@ endif # DO_MKDBG
 # dependency on the makefile itself
 ifeq ($(DO_ALLDEP),1)
 .EXTRA_PREREQS+=$(foreach mk, ${MAKEFILE_LIST},$(abspath ${mk}))
-endif
+endif # DO_ALLDEP
 
 # markdown
 YAML_SRC:=$(shell find yaml -name "*.yaml")
@@ -33,7 +33,7 @@ YAML_BAS:=$(basename $(YAML_SRC))
 YAML_JSON:=$(addprefix out/,$(addsuffix .json,$(YAML_BAS)))
 ifeq ($(DO_FMT_YAML_JSON),1)
 ALL+=$(YAML_JSON)
-endif
+endif # DO_FMT_YAML_JSON
 
 #########
 # rules #
