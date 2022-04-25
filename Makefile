@@ -7,6 +7,8 @@ DO_MKDBG:=0
 DO_ALLDEP:=1
 # do you want to do 'ppt' from 'odp'?
 DO_FMT_YAML_JSON:=1
+# do you want to do tools?
+DO_TOOLS:=1
 
 ########
 # code #
@@ -61,4 +63,5 @@ clean:
 
 .PHONY: clean_hard
 clean_hard:
+	$(info doing [$@])
 	$(Q)git clean -qffxd
