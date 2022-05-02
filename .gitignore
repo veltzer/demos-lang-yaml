@@ -2,3 +2,4 @@
 /out/
 *.stamp
 /.pydmt
+__pycache__
