@@ -1,0 +1,9 @@
+---
+# this exapmle shows that you don't need to do anything
+# in order to do a paragraph in yaml. Quotes are striped.
+- long_text_with_quotes:
+    "very very very very long text needs to be inserted here
+    see what happens to new lines..."
+- long_text_without_quotes:
+    very very very very long text needs to be inserted here
+    see what happens to new lines...
