@@ -28,7 +28,7 @@ ifeq ($(DO_ALLDEP),1)
 endif # DO_ALLDEP
 
 # markdown
-YAML_SRC:=$(shell find yaml -name "*.yaml")
+YAML_SRC:=$(shell find yaml -type f -and -name "*.yaml")
 YAML_BAS:=$(basename $(YAML_SRC))
 YAML_JSON:=$(addprefix out/,$(addsuffix .json,$(YAML_BAS)))
 ifeq ($(DO_FMT_YAML_JSON),1)
