@@ -22,11 +22,6 @@ Q:=@
 #.SILENT:
 endif # DO_MKDBG
 
-# dependency on the makefile itself
-ifeq ($(DO_ALLDEP),1)
-.EXTRA_PREREQS+=$(foreach mk, ${MAKEFILE_LIST},$(abspath ${mk}))
-endif # DO_ALLDEP
-
 # markdown
 YAML_SRC:=$(shell find yaml -type f -and -name "*.yaml")
 YAML_BAS:=$(basename $(YAML_SRC))
@@ -63,3 +58,10 @@ clean:
 clean_hard:
 	$(info doing [$@])
 	$(Q)git clean -qffxd
+
+##########
+# alldep #
+##########
+ifeq ($(DO_ALLDEP),1)
+.EXTRA_PREREQS+=$(foreach mk, ${MAKEFILE_LIST},$(abspath ${mk}))
+endif # DO_ALLDEP
