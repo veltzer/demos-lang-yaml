@@ -12,9 +12,6 @@ src_dirs = ["scripts"]
 [processor.mypy]
 src_dirs = ["scripts"]
 
-[processor.requirements]
-src_dirs = ["scripts"]
-
 [processor.taplo]
 src_dirs = ["."]
 
@@ -36,7 +33,3 @@ output_extension = "json"
 batch = false
 
 # The Python yq (a jq wrapper) so CI can run the conversion.
-[dependencies]
-pip = [
-    "yq",
-]
