@@ -1,5 +1,4 @@
-# rsconstruct configuration for this repository — shared defaults plus
-# repo-specific config (merged from the former rsconstruct.local.toml).
+# rsconstruct build configuration for this repository.
 
 [analyzer.python]
 
@@ -18,7 +17,7 @@ src_dirs = ["."]
 [processor.iyamllint]
 src_dirs = ["yaml"]
 
-# ─── merged from rsconstruct.local.toml ─────────────────────────────────────
+# ─── repo-specific configuration ────────────────────────────────────────────
 
 # The Makefile converted each yaml/**/*.yaml to out/**/*.json with `yq < in > out`
 # (the Python yq, which defaults to JSON output). The generator processor drives
