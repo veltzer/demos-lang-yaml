@@ -14,9 +14,6 @@ src_dirs = ["scripts"]
 [processor.taplo]
 src_dirs = ["."]
 
-[processor.iyamllint]
-src_dirs = ["yaml"]
-
 # ─── repo-specific configuration ────────────────────────────────────────────
 
 # The Makefile converted each yaml/**/*.yaml to out/**/*.json with `yq < in > out`
@@ -36,3 +33,13 @@ batch = false
 # lint the GitHub Actions workflow files with actionlint
 [processor.actionlint]
 src_dirs = [".github/workflows"]
+
+# ─── markdown ────────────────────────────────────────────────────────────────
+
+[processor.rumdl]
+src_files = ["README.md"]
+
+# ─── yaml ────────────────────────────────────────────────────────────────────
+
+[processor.yamllint]
+src_dirs = ["yaml"]
