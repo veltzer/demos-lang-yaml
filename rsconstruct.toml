@@ -6,14 +6,14 @@ reject_dot_src_dirs = true
 
 [analyzer.python]
 
-[processor.ruff]
+[processor.checker.ruff]
 src_dirs = ["scripts"]
 
 
-[processor.mypy]
+[processor.checker.mypy]
 src_dirs = ["scripts"]
 
-[processor.taplo]
+[processor.checker.taplo]
 src_files = [".rumdl.toml", "pyproject.toml", "rsconstruct.toml"]
 
 # ─── repo-specific configuration ────────────────────────────────────────────
@@ -22,7 +22,7 @@ src_files = [".rumdl.toml", "pyproject.toml", "rsconstruct.toml"]
 # (the Python yq, which defaults to JSON output). The generator processor drives
 # scripts/yaml_to_json.py, which does the same stdin->stdout redirect since yq
 # takes no output-path argument.
-[processor.generator.yaml_json]
+[processor.generator.generic.yaml_json]
 command = "scripts/yaml_to_json.py"
 src_dirs = ["yaml"]
 src_extensions = [".yaml"]
@@ -33,15 +33,15 @@ batch = false
 # The Python yq (a jq wrapper) so CI can run the conversion.
 
 # lint the GitHub Actions workflow files with actionlint
-[processor.actionlint]
+[processor.checker.actionlint]
 src_dirs = [".github/workflows"]
 
 # ─── markdown ────────────────────────────────────────────────────────────────
 
-[processor.rumdl]
+[processor.checker.rumdl]
 src_files = ["README.md"]
 
 # ─── yaml ────────────────────────────────────────────────────────────────────
 
-[processor.yamllint]
+[processor.checker.yamllint]
 src_dirs = ["yaml"]
