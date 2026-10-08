@@ -43,5 +43,5 @@ src_files = ["README.md"]
 
 # ─── yaml ────────────────────────────────────────────────────────────────────
 
-[processor.checker.yamllint]
+[processor.checker.iyamllint]
 src_dirs = ["yaml"]
