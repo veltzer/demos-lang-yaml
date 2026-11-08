@@ -24,6 +24,8 @@ src_files = [".rumdl.toml", "pyproject.toml", "rsconstruct.toml"]
 # takes no output-path argument.
 [processor.generator.generic.yaml_json]
 command = "scripts/yaml_to_json.py"
+# a Python script (and the Python yq), which write bytecode
+required_tools = ["python"]
 src_dirs = ["yaml"]
 src_extensions = [".yaml"]
 output_dir = "out"
